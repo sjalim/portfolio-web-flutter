@@ -16,6 +16,10 @@ class AppTextStyles {
   }
 
   static TextStyle headingStyle() {
-    return GoogleFonts.rubikMoonrocks(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white, letterSpacing: 2, );
+    return GoogleFonts.rubikMoonrocks(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        letterSpacing: 2);
   }
 }
