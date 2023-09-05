@@ -6,6 +6,7 @@ import 'package:portfolio/globals/app_assets.dart';
 import 'package:portfolio/globals/app_colors.dart';
 import 'package:portfolio/globals/app_text_styles.dart';
 import 'package:portfolio/globals/constants.dart';
+import 'package:portfolio/widgets/profile_animation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -75,6 +76,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +93,6 @@ class HomePage extends StatelessWidget {
                     FadeInRight(
                       duration: const Duration(milliseconds: 1400),
                       child: Text(
-                        
                         'Michael Corleone',
                         style: AppTextStyles.headingStyle(),
                       ),
@@ -111,8 +113,8 @@ class HomePage extends StatelessWidget {
                                 speed: Duration(milliseconds: 400),
                               ),
                               TyperAnimatedText('Don Corleone',
-                                  textStyle: AppTextStyles.montserratStyle(
-                                      Colors.red))
+                                  textStyle:
+                                      AppTextStyles.montserratStyle(Colors.red))
                             ],
                             pause: const Duration(milliseconds: 1000),
                             displayFullTextOnTap: true,
@@ -150,22 +152,34 @@ class HomePage extends StatelessWidget {
                     Constants.sizedBox(height: 18),
                     MaterialButton(
                       color: AppColors.themeColor,
+                      splashColor: AppColors.lawGreen,
                       onPressed: () {},
                       padding: const EdgeInsets.symmetric(
                           horizontal: 14, vertical: 8),
                       shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      hoverColor: AppColors.bgColor,
-                      height: 55,
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide.none),
+                      hoverColor: AppColors.aqua,
+                      elevation: 6,
+                      height: 50,
                       minWidth: 130,
+                      focusElevation: 12,
                       child: Text(
                         'Download CV',
                         style: AppTextStyles.headerTextStyle(),
                       ),
                     )
                   ],
-                )
+                ),
+                const SizedBox(
+                  width: 30,
+                ),
+                const ProfileAnimation()
+                // Image.asset(
+                //   AppAssets.profile1,
+                //   width: 300,
+                //   height: 330,
+                // )
               ],
             )
           ],
@@ -175,18 +189,30 @@ class HomePage extends StatelessWidget {
   }
 }
 
-CircleAvatar buildSocialButton({required String asset}) {
-  return CircleAvatar(
-    maxRadius: 24,
-    backgroundColor: AppColors.themeColor,
-    child: CircleAvatar(
-      maxRadius: 20,
-      backgroundColor: AppColors.bgColor,
-      child: Image.asset(
-        asset,
-        width: 24,
-        height: 20,
-        fit: BoxFit.contain,
+Ink buildSocialButton({required String asset}) {
+  return Ink(
+    width: 45,
+    height: 45,
+    decoration: BoxDecoration(
+        border: Border.all(color: AppColors.themeColor, width: 2.0),
+        color: AppColors.bgColor,
+        shape: BoxShape.circle),
+    padding: const EdgeInsets.all(6.0),
+    child: InkWell(
+      onTap: () {},
+      radius: 20,
+      borderRadius: BorderRadius.circular(500.0),
+      splashColor: AppColors.lawGreen,
+      hoverColor: AppColors.aqua,
+      child: CircleAvatar(
+        maxRadius: 20,
+        backgroundColor: AppColors.bgColor,
+        child: Image.asset(
+          asset,
+          color: AppColors.themeColor,
+          width: 20,
+          height: 24,
+        ),
       ),
     ),
   );
