@@ -6,4 +6,5 @@ class AppAssets {
   static String twitter = '/icons/twitter.png';
   static String profile1 = 'images/profile1.png';
   static String profile2 = 'images/profile2.png';
+  static String talk = 'icons/talk.png';
 }

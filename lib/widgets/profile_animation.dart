@@ -23,18 +23,27 @@ class _ProfileAnimationState extends State<ProfileAnimation>
         AnimationController(vsync: this, duration: Duration(seconds: 3))
           ..repeat(reverse: true);
 
-    _animation = Tween(begin: Offset.zero, end: const Offset(0, 0.9))
+    _animation = Tween(begin: Offset.zero, end: const Offset(0, 0.1))
         .animate(_controller);
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+    
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _animation,
-      child: Image.asset(
-        AppAssets.profile1,
-        width: 360,
-        height: 390,
+    return Expanded(
+      child: SlideTransition(
+        position: _animation,
+        child: Image.asset(
+          AppAssets.profile1,
+          width: 360,
+          height: 390,
+        ),
       ),
     );
   }
