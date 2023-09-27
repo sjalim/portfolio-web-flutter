@@ -7,11 +7,11 @@ class AppTextStyles {
         fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white, letterSpacing: 1.7);
   }
 
-  static TextStyle montserratStyle(Color color) {
+  static TextStyle montserratStyle(Color color, {double fontSize = 24.0}) {
     return GoogleFonts.montserrat(
       color: color,
       fontWeight: FontWeight.bold,
-      fontSize: 24,
+      fontSize: fontSize,
     );
   }
 

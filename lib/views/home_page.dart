@@ -73,10 +73,10 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
-            top: size.height * 0.05,
-            // left: size.height * 0.3,
-            // right: size.height * 0.3
-            ),
+          top: size.height * 0.05,
+          // left: size.height * 0.3,
+          // right: size.height * 0.3
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,10 +193,9 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(
               height: 220,
-           
             ),
-            const  AboutMe(),
-            const MyServices(), 
+            const AboutMe(),
+            const MyServices(),
             const MyPortFolio()
           ],
         ),
