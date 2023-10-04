@@ -38,13 +38,13 @@ class _MyServicesState extends State<MyServices> {
             child: RichText(
               text: TextSpan(
                 text: 'My ',
-                style: AppTextStyles.headingStyle(fontSize: 30),
+                style: AppTextStyles.headingStyles(fontSize: 30),
                 children: [
                   TextSpan(
                     text: 'Services',
-                    style: AppTextStyles.headingStyle(
-                        fontSize: 30, color: AppColors.robinEdgeBlue),
-                  ),
+                    style: AppTextStyles.headingStyles(
+                        color: AppColors.robinEdgeBlue),
+                  )
                 ],
               ),
             ),
@@ -59,7 +59,6 @@ class _MyServicesState extends State<MyServices> {
                 },
                 onHover: (value) {
                   setState(() {
-                    print("Hover 1");
                     isHover1 = value;
                   });
                 },
@@ -75,7 +74,6 @@ class _MyServicesState extends State<MyServices> {
                 },
                 onHover: (value) {
                   setState(() {
-                    print("Hover 2");
                     isHover2 = value;
                   });
                 },
@@ -91,7 +89,6 @@ class _MyServicesState extends State<MyServices> {
                 },
                 onHover: (value) {
                   setState(() {
-                    print("Hover 3");
                     isHover3 = value;
                   });
                 },
@@ -111,8 +108,8 @@ class _MyServicesState extends State<MyServices> {
       {required String title, required String asset, required bool hover}) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 600),
-      width: hover ? 410 : 400,
-      height: hover ? 510 : 500,
+      width: hover ? 420 : 410,
+      height: hover ? 520 : 510,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
       decoration: BoxDecoration(
@@ -138,7 +135,7 @@ class _MyServicesState extends State<MyServices> {
           Constants.sizedBox(height: 30),
           Text(
             title,
-            style: AppTextStyles.montserratStyle(Colors.white),
+            style: AppTextStyles.montserratStyle(color: Colors.white, fontSize: 14),
           ),
           Constants.sizedBox(height: 12),
           Text(
@@ -147,7 +144,7 @@ class _MyServicesState extends State<MyServices> {
             'specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
             'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing'
             'software like Aldus PageMaker including versions of Lorem Ipsum. ',
-            style: AppTextStyles.normalStyle(),
+            style: AppTextStyles.normalStyle(fontSize: 14),
             textAlign: TextAlign.center,
           ),
           Constants.sizedBox(height: 20),
