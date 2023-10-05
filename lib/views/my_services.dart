@@ -4,6 +4,7 @@ import 'package:portfolio/globals/app_button.dart';
 import 'package:portfolio/globals/app_colors.dart';
 import 'package:portfolio/globals/app_text_styles.dart';
 import 'package:portfolio/globals/constants.dart';
+import 'package:portfolio/views/helper_class.dart';
 
 import '../globals/app_assets.dart';
 
@@ -25,81 +26,201 @@ class _MyServicesState extends State<MyServices> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: AppColors.bgColor,
-      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 12),
-      alignment: Alignment.center,
-      child: Column(
-        children: [
-          FadeInDown(
-            duration: const Duration(milliseconds: 1200),
-            child: RichText(
-              text: TextSpan(
-                text: 'My ',
-                style: AppTextStyles.headingStyles(fontSize: 30),
-                children: [
-                  TextSpan(
-                    text: 'Services',
-                    style: AppTextStyles.headingStyles(
-                        color: AppColors.robinEdgeBlue),
-                  )
-                ],
-              ),
+    return Scaffold(
+      backgroundColor: AppColors.bgColor,
+      body: HelperClass(
+        mobile: Column(
+          children: [
+            buildMyServicesText(),
+            Constants.sizedBox(height: 60),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    print("Inkwell 1");
+                  },
+                  onHover: (value) {
+                    setState(() {
+                      isHover1 = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'Colloquial',
+                      asset: AppAssets.talk,
+                      hover: isHover1),
+                ),
+                Constants.sizedBox(width: 18),
+                InkWell(
+                  onTap: () {
+                    print("Inkwell 2");
+                  },
+                  onHover: (value) {
+                    setState(() {
+                      isHover2 = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'Colloquial',
+                      asset: AppAssets.talk,
+                      hover: isHover2),
+                ),
+                Constants.sizedBox(width: 18),
+                InkWell(
+                  onTap: () {
+                    print("Inkwell 3");
+                  },
+                  onHover: (value) {
+                    setState(() {
+                      isHover3 = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'Colloquial',
+                      asset: AppAssets.talk,
+                      hover: isHover3),
+                ),
+              ],
             ),
-          ),
-          Constants.sizedBox(height: 60),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                onTap: () {
-                  print("Inkwell 1");
-                },
-                onHover: (value) {
-                  setState(() {
-                    isHover1 = value;
-                  });
-                },
-                child: buildAnimatedContainer(
-                    title: 'Colloquial',
-                    asset: AppAssets.talk,
-                    hover: isHover1),
-              ),
-              Constants.sizedBox(width: 18),
-              InkWell(
-                onTap: () {
-                  print("Inkwell 2");
-                },
-                onHover: (value) {
-                  setState(() {
-                    isHover2 = value;
-                  });
-                },
-                child: buildAnimatedContainer(
-                    title: 'Colloquial',
-                    asset: AppAssets.talk,
-                    hover: isHover2),
-              ),
-              Constants.sizedBox(width: 18),
-              InkWell(
-                onTap: () {
-                  print("Inkwell 3");
-                },
-                onHover: (value) {
-                  setState(() {
-                    isHover3 = value;
-                  });
-                },
-                child: buildAnimatedContainer(
-                    title: 'Colloquial',
-                    asset: AppAssets.talk,
-                    hover: isHover3),
-              ),
-            ],
-          )
-        ],
+          ],
+        ),
+        tablet: Column(
+          children: [
+            buildMyServicesText(),
+            Constants.sizedBox(height: 60),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      print("Inkwell 1");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        isHover1 = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Colloquial',
+                        asset: AppAssets.talk,
+                        hover: isHover1),
+                  ),
+                ),
+                Constants.sizedBox(width: 18),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      print("Inkwell 2");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        isHover2 = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Colloquial',
+                        asset: AppAssets.talk,
+                        hover: isHover2),
+                  ),
+                ),
+              ],
+            ),
+            InkWell(
+              onTap: () {
+                print("Inkwell 3");
+              },
+              onHover: (value) {
+                setState(() {
+                  isHover3 = value;
+                });
+              },
+              child: buildAnimatedContainer(
+                  title: 'Colloquial', asset: AppAssets.talk, hover: isHover3),
+            ),
+          ],
+        ),
+        desktop:  Column(
+          children: [
+             buildMyServicesText(),
+            Constants.sizedBox(height: 60),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      print("Inkwell 1");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        isHover1 = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Colloquial',
+                        asset: AppAssets.talk,
+                        hover: isHover1),
+                  ),
+                ),
+                Constants.sizedBox(width: 18),
+                Expanded(
+
+                  child: InkWell(
+                    onTap: () {
+                      print("Inkwell 2");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        isHover2 = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Colloquial',
+                        asset: AppAssets.talk,
+                        hover: isHover2),
+                  ),
+                ),
+                Constants.sizedBox(width: 18),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      print("Inkwell 3");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        isHover3 = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Colloquial',
+                        asset: AppAssets.talk,
+                        hover: isHover3),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  FadeInDown buildMyServicesText() {
+    return FadeInDown(
+      duration: const Duration(milliseconds: 1200),
+      child: RichText(
+        text: TextSpan(
+          text: 'My ',
+          style: AppTextStyles.headingStyles(fontSize: 30),
+          children: [
+            TextSpan(
+              text: 'Services',
+              style:
+                  AppTextStyles.headingStyles(color: AppColors.robinEdgeBlue),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -135,7 +256,8 @@ class _MyServicesState extends State<MyServices> {
           Constants.sizedBox(height: 30),
           Text(
             title,
-            style: AppTextStyles.montserratStyle(color: Colors.white, fontSize: 14),
+            style: AppTextStyles.montserratStyle(
+                color: Colors.white, fontSize: 14),
           ),
           Constants.sizedBox(height: 12),
           Text(
