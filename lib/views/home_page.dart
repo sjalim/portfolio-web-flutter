@@ -36,54 +36,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: AppColors.bgColor2,
-      body:  HelperClass(
-          mobile:  Column(
-              children: [
-                buildHomePersonalInfo(size),
-                Constants.sizedBox(height: 24),
-               const Expanded(child:  ProfileAnimation())
-              ],
-            ),
-          tablet: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [buildHomePersonalInfo(size), const ProfileAnimation()],
-          ),
-          desktop: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [buildHomePersonalInfo(size), const ProfileAnimation()],
-          ),
-        ),
-
-
-      // SingleChildScrollView(
-      //   padding: EdgeInsets.only(
-      //     top: size.height * 0.05,
-      //     // left: size.height * 0.3,
-      //     // right: size.height * 0.3
-      //   ),
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.start,
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       Padding(
-      //         padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * 0.1),
-      //         child:
-      //       ),
-      //       const SizedBox(
-      //         height: 220,
-      // ),
-      // const AboutMe(),
-      // const MyServices(),
-      // const MyPortFolio(),
-      // const ContactUs(),
-      // const FooterClass()
-      //     ],
-      //   ),
-      // ),
+    return HelperClass(
+      mobile:
+          // SizedBox(),
+          Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          buildHomePersonalInfo(size),
+          Constants.sizedBox(height: 24),
+          const ProfileAnimation()
+        ],
+      ),
+      tablet: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation()
+        ],
+      ),
+      desktop: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation()
+        ],
+      ),
+      paddingWidth: size.width * 0.1,
+      bgColor: Colors.transparent,
     );
   }
 
@@ -185,7 +167,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Constants.sizedBox(height: 15),
         FadeInUp(
-          duration: const Duration(milliseconds: 1700),
+          duration: const Duration(milliseconds: 1200),
           child: SizedBox(
             height: 48,
             child: ListView.separated(
@@ -237,15 +219,6 @@ class _HomePageState extends State<HomePage> {
           ),
         )
       ],
-
-      // const SizedBox(
-      //   width: 30,
-      // ),
-      // Image.asset(
-      //   AppAssets.profile1,
-      //   width: 300,
-      //   height: 330,
-      // )
     );
   }
 

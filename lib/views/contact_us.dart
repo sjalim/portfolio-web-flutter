@@ -14,83 +14,94 @@ class ContactUs extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
-    return Scaffold(backgroundColor: AppColors.bgColor, body: HelperClass(mobile: Column(
-      children: [
-        FadeInDown(
-          duration: const Duration(milliseconds: 1200),
-          child: RichText(
-            text: TextSpan(
-              text: 'Contact ',
-              style: AppTextStyles.headingStyles(fontSize: 30),
-              children: [
-                TextSpan(
-                  text: 'Me!',
-                  style: AppTextStyles.headingStyles(
-                      fontSize: 30, color: AppColors.robinEdgeBlue),
-                ),
-              ],
+    return HelperClass(
+      mobile: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FadeInDown(
+            duration: const Duration(milliseconds: 1200),
+            child: RichText(
+              text: TextSpan(
+                text: 'Contact ',
+                style: AppTextStyles.headingStyles(fontSize: 30),
+                children: [
+                  TextSpan(
+                    text: 'Me!',
+                    style: AppTextStyles.headingStyles(
+                        fontSize: 30, color: AppColors.robinEdgeBlue),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        Constants.sizedBox(height: 40),
-        Material(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          elevation: 8,
-          child: TextField(
-            decoration: buildInputDecoration(hintText: "Full Name"),
-            style: AppTextStyles.normalStyle(),
+          Constants.sizedBox(height: 40),
+          Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            elevation: 8,
+            child: TextField(
+              decoration: buildInputDecoration(hintText: "Full Name"),
+              style: AppTextStyles.normalStyle(),
+            ),
           ),
-        ),
           Constants.sizedBox(height: 20.0),
-        Material(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          elevation: 8,
-          child: TextField(
-            decoration: buildInputDecoration(hintText: "Email Address"),
-            style: AppTextStyles.normalStyle(),
+          Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            elevation: 8,
+            child: TextField(
+              decoration: buildInputDecoration(hintText: "Email Address"),
+              style: AppTextStyles.normalStyle(),
+            ),
           ),
-        ),
           Constants.sizedBox(height: 20.0),
-        Material(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          elevation: 8,
-          child: TextField(
-            decoration: buildInputDecoration(hintText: "Mobile Number"),
-            style: AppTextStyles.normalStyle(),
+          Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            elevation: 8,
+            child: TextField(
+              decoration: buildInputDecoration(hintText: "Mobile Number"),
+              style: AppTextStyles.normalStyle(),
+            ),
           ),
-        ),
           Constants.sizedBox(height: 20.0),
-        Material(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          elevation: 8,
-          child: TextField(
-            decoration: buildInputDecoration(hintText: "Email Subject"),
-            style: AppTextStyles.normalStyle(),
+          Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            elevation: 8,
+            child: TextField(
+              decoration: buildInputDecoration(hintText: "Email Subject"),
+              style: AppTextStyles.normalStyle(),
+            ),
           ),
-        ),
-        Constants.sizedBox(height: 20),
-        Material(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          elevation: 8,
-          child: TextField(
-            maxLines: 10,
-            decoration: buildInputDecoration(hintText: "Your Message"),
-            style: AppTextStyles.normalStyle(),
+          Constants.sizedBox(height: 20),
+          Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            elevation: 8,
+            child: TextField(
+              maxLines: 10,
+              decoration: buildInputDecoration(hintText: "Your Message"),
+              style: AppTextStyles.normalStyle(),
+            ),
           ),
-        ),
-        Constants.sizedBox(height: 30),
-        AppButtons.buildMaterialButton(buttonName: "Send Message", onTap: () {})
-      ],
-    ), tablet: buildForm(), desktop: buildForm()),);
+          Constants.sizedBox(height: 30),
+          AppButtons.buildMaterialButton(
+              buttonName: "Send Message", onTap: () {})
+        ],
+      ),
+      tablet: buildForm(),
+      desktop: buildForm(),
+      paddingWidth: size.width * 0.2,
+      bgColor: AppColors.bgColor,
+    );
   }
 
   Column buildForm() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         FadeInDown(
           duration: const Duration(milliseconds: 1200),
@@ -138,6 +149,7 @@ class ContactUs extends StatelessWidget {
         ),
         Constants.sizedBox(height: 20),
         Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
               child: Material(
